@@ -33,7 +33,6 @@ export class HomeComponent implements OnInit {
         };
         this.users_data.push(data);
       });
-      console.log(this.users_data);
     });
   }
 
@@ -51,7 +50,6 @@ export class HomeComponent implements OnInit {
   onEditRowData(item_object: any, item_index: number) {
     this.id_form_editable = true;
     this.selected_item_index = item_index;
-    console.log(item_object, item_index);
     this.userform.patchValue({
       name: item_object.name,
       phone: item_object.phone,
@@ -60,7 +58,6 @@ export class HomeComponent implements OnInit {
   }
 
   onUpdateRowData() {
-    console.log(this.userform.value);
     this.users_data.splice(this.selected_item_index, 1);
     this.users_data.splice(this.selected_item_index, 0, this.userform.value);
   }
