@@ -1,0 +1,49 @@
+<section class="p-1">
+  <div class="d-flex mb-2">
+    <h3 class="lead">Add Data</h3>
+    <span class="spacer"></span>
+    <button class="btn btn-primary" routerLink="/">logout <i class="fa fa-sign-out"></i></button>
+  </div>
+  <div class="p-2 card shadow-sm">
+    <form [formGroup]="userform">
+      <div class="d-flex">
+        <input type="text" formControlName="name" class="form-control mx-1" placeholder="Enter name">
+        <input type="text" formControlName="phone" class="form-control mx-1" placeholder="Enter phone">
+        <input type="text" formControlName="website" class="form-control mx-1" placeholder="Enter website">
+        <button class="btn btn-success" (click)="addUserData()" *ngIf="!id_form_editable">Submit</button>
+        <button class="btn btn-warning" (click)="onUpdateRowData()" *ngIf="id_form_editable">Update</button>
+        <button class="btn btn-secondary ms-1" (click)="resetForm()" *ngIf="id_form_editable"><i class="fa fa-times"></i></button>
+      </div>
+    </form>
+  </div>
+  <h3 class="lead">Data lists</h3>
+  <table class="table table-bordered table-hover">
+    <thead>
+      <tr>
+        <th>Id</th>
+        <th>Name</th>
+        <th>Phone</th>
+        <th>Website</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let user of users_data;let i = index">
+        <td>{{i+1}}</td>
+        <td>{{user.name}}</td>
+        <td>{{user.phone}}</td>
+        <td>{{user.website}}</td>
+        <td>
+          <div class="d-flex">
+            <button (click)="onEditRowData(user,i)" class="icon-btn bg-warning mx-1">
+              <i class="fa fa-pencil"></i>
+            </button>
+            <button (click)="deleteElement(i)" class="icon-btn bg-danger mx-1">
+              <i class="fa fa-remove"></i>
+            </button>
+          </div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</section>

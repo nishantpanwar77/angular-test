@@ -1,0 +1,12 @@
+.icon-btn {
+  border: none;
+  border-radius: 5px;
+  padding: 5px 10px;
+  color: white;
+  transition: all 0.3s;
+  &:hover {
+    transition: all 0.3s;
+    opacity: 0.8;
+    transform: translateY(-1px);
+  }
+}
